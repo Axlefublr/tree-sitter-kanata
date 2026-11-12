@@ -1,0 +1,73 @@
+===============
+comment
+===============
+(deflayermap (a)
+	a b ;;comment here
+)
+
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (key))
+    (comment
+      (inner_comment))))
+
+===============
+comment empty
+===============
+(deflayermap (a)
+	a b ;;
+)
+
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (key))
+    (comment
+      (inner_comment))))
+
+===============
+comment toplevel
+===============
+;;comment here
+(deflayermap (a)
+	a b
+)
+
+---------------
+
+(source_file
+  (comment
+    (inner_comment))
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (key))))
+
+===============
+comment between
+===============
+(deflayermap (a)
+	a ;;comment here
+	b
+)
+
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (comment
+        (inner_comment))
+      (key))))

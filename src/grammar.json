@@ -1,0 +1,783 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "kanata",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_toplevel"
+      }
+    },
+    "_toplevel": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "deflayermap"
+        }
+      ]
+    },
+    "deflayermap": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "deflayermap"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "layer_name"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "mapping"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "mapping": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "key"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_key_expression"
+        }
+      ]
+    },
+    "_key_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "key"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command"
+        }
+      ]
+    },
+    "_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "plain"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quoted"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command"
+        }
+      ]
+    },
+    "_command": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "layer_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "multi"
+        }
+      ]
+    },
+    "multi": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "multi"
+          },
+          "named": true,
+          "value": "known_command"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_key_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "layer_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "layer-toggle"
+              },
+              {
+                "type": "STRING",
+                "value": "layer-while-held"
+              },
+              {
+                "type": "STRING",
+                "value": "layer-switch"
+              }
+            ]
+          },
+          "named": true,
+          "value": "known_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "layer_name"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "known_command"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "known_command": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "arbitrary-code"
+        },
+        {
+          "type": "STRING",
+          "value": "caps-word"
+        },
+        {
+          "type": "STRING",
+          "value": "caps-word-custom"
+        },
+        {
+          "type": "STRING",
+          "value": "caps-word-custom-toggle"
+        },
+        {
+          "type": "STRING",
+          "value": "caps-word-toggle"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-cmd-set"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-restore"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-save"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-save-cmd-set"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-save-swap"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-set"
+        },
+        {
+          "type": "STRING",
+          "value": "cmd"
+        },
+        {
+          "type": "STRING",
+          "value": "cmd-log"
+        },
+        {
+          "type": "STRING",
+          "value": "cmd-output-keys"
+        },
+        {
+          "type": "STRING",
+          "value": "concat"
+        },
+        {
+          "type": "STRING",
+          "value": "defalias"
+        },
+        {
+          "type": "STRING",
+          "value": "defaliasenvcond"
+        },
+        {
+          "type": "STRING",
+          "value": "defcfg"
+        },
+        {
+          "type": "STRING",
+          "value": "defchords"
+        },
+        {
+          "type": "STRING",
+          "value": "defchordsv2"
+        },
+        {
+          "type": "STRING",
+          "value": "deflayer"
+        },
+        {
+          "type": "STRING",
+          "value": "deflayermap"
+        },
+        {
+          "type": "STRING",
+          "value": "deflocalkeys-linux"
+        },
+        {
+          "type": "STRING",
+          "value": "deflocalkeys-macos"
+        },
+        {
+          "type": "STRING",
+          "value": "deflocalkeys-win"
+        },
+        {
+          "type": "STRING",
+          "value": "deflocalkeys-winiov2"
+        },
+        {
+          "type": "STRING",
+          "value": "deflocalkeys-wintercept"
+        },
+        {
+          "type": "STRING",
+          "value": "defoverrides"
+        },
+        {
+          "type": "STRING",
+          "value": "defseq"
+        },
+        {
+          "type": "STRING",
+          "value": "defsrc"
+        },
+        {
+          "type": "STRING",
+          "value": "deftemplate"
+        },
+        {
+          "type": "STRING",
+          "value": "defvar"
+        },
+        {
+          "type": "STRING",
+          "value": "defvirtualkeys"
+        },
+        {
+          "type": "STRING",
+          "value": "defzippy"
+        },
+        {
+          "type": "STRING",
+          "value": "dynamic-macro-play"
+        },
+        {
+          "type": "STRING",
+          "value": "dynamic-macro-record"
+        },
+        {
+          "type": "STRING",
+          "value": "dynamic-macro-record-stop"
+        },
+        {
+          "type": "STRING",
+          "value": "dynamic-macro-record-stop-truncate"
+        },
+        {
+          "type": "STRING",
+          "value": "environment"
+        },
+        {
+          "type": "STRING",
+          "value": "fork"
+        },
+        {
+          "type": "STRING",
+          "value": "hold-for-duration"
+        },
+        {
+          "type": "STRING",
+          "value": "if-equal"
+        },
+        {
+          "type": "STRING",
+          "value": "if-in-list"
+        },
+        {
+          "type": "STRING",
+          "value": "if-not-equal"
+        },
+        {
+          "type": "STRING",
+          "value": "if-not-in-list"
+        },
+        {
+          "type": "STRING",
+          "value": "include"
+        },
+        {
+          "type": "STRING",
+          "value": "macro"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-cancel-on-press"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-release-cancel"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-release-cancel-and-cancel-on-press"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-repeat"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-repeat-"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-repeat-cancel-on-press"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-repeat-release-cancel"
+        },
+        {
+          "type": "STRING",
+          "value": "macro-repeat-release-cancel-and-cancel-on-press"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-accel-down"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-accel-left"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-accel-right"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-accel-up"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-down"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-left"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-right"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-speed"
+        },
+        {
+          "type": "STRING",
+          "value": "movemouse-up"
+        },
+        {
+          "type": "STRING",
+          "value": "mwheel-down"
+        },
+        {
+          "type": "STRING",
+          "value": "mwheel-left"
+        },
+        {
+          "type": "STRING",
+          "value": "mwheel-right"
+        },
+        {
+          "type": "STRING",
+          "value": "mwheel-up"
+        },
+        {
+          "type": "STRING",
+          "value": "on-idle"
+        },
+        {
+          "type": "STRING",
+          "value": "on-physical-idle"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "on-press"
+            },
+            {
+              "type": "STRING",
+              "value": "on↓"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "on-release"
+            },
+            {
+              "type": "STRING",
+              "value": "on↑"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "one-shot"
+        },
+        {
+          "type": "STRING",
+          "value": "one-shot-pause-processing"
+        },
+        {
+          "type": "STRING",
+          "value": "one-shot-press"
+        },
+        {
+          "type": "STRING",
+          "value": "one-shot-press-pcancel"
+        },
+        {
+          "type": "STRING",
+          "value": "one-shot-release"
+        },
+        {
+          "type": "STRING",
+          "value": "one-shot-release-pcancel"
+        },
+        {
+          "type": "STRING",
+          "value": "platform"
+        },
+        {
+          "type": "STRING",
+          "value": "release-key"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "release-layer"
+            },
+            {
+              "type": "STRING",
+              "value": "layer↑"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "sequence"
+        },
+        {
+          "type": "STRING",
+          "value": "sequence-noerase"
+        },
+        {
+          "type": "STRING",
+          "value": "setmouse"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-dance"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-dance-eager"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-hold"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-hold-except-keys"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-hold-press"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-hold-press-timeout"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-hold-release"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-hold-release-keys"
+        },
+        {
+          "type": "STRING",
+          "value": "tap-hold-release-timeout"
+        },
+        {
+          "type": "STRING",
+          "value": "template-expand"
+        },
+        {
+          "type": "STRING",
+          "value": "unicode"
+        },
+        {
+          "type": "STRING",
+          "value": "unmod"
+        },
+        {
+          "type": "STRING",
+          "value": "t!"
+        },
+        {
+          "type": "STRING",
+          "value": "switch"
+        },
+        {
+          "type": "STRING",
+          "value": "or"
+        },
+        {
+          "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
+          "value": "not"
+        },
+        {
+          "type": "STRING",
+          "value": "key-history"
+        },
+        {
+          "type": "STRING",
+          "value": "key-timing"
+        },
+        {
+          "type": "STRING",
+          "value": "input"
+        },
+        {
+          "type": "STRING",
+          "value": "input-history"
+        },
+        {
+          "type": "STRING",
+          "value": "layer"
+        },
+        {
+          "type": "STRING",
+          "value": "base-layer"
+        }
+      ]
+    },
+    "comment": {
+      "type": "PREC",
+      "value": 1000,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1000,
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ";;"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "[ \\t]*"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "inner_comment"
+          }
+        ]
+      }
+    },
+    "inner_comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1000,
+        "content": {
+          "type": "PATTERN",
+          "value": ".*"
+        }
+      }
+    },
+    "quoted": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "inner_quoted"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "inner_quoted": {
+      "type": "PATTERN",
+      "value": "[^\\r\\n\"]+"
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "\\d+"
+    },
+    "plain": {
+      "type": "PATTERN",
+      "value": "[^\\s()\"]+"
+    },
+    "key": {
+      "type": "PATTERN",
+      "value": "[^\\s()]+"
+    },
+    "layer_name": {
+      "type": "PATTERN",
+      "value": "[^\\s()]+"
+    },
+    "_whitespace": {
+      "type": "PATTERN",
+      "value": "\\s+"
+    }
+  },
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_whitespace"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}

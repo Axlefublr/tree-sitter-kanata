@@ -1,0 +1,671 @@
+[
+  {
+    "type": "command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "known_command",
+          "named": true
+        },
+        {
+          "type": "layer_command",
+          "named": true
+        },
+        {
+          "type": "multi",
+          "named": true
+        },
+        {
+          "type": "plain",
+          "named": true
+        },
+        {
+          "type": "quoted",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "inner_comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "deflayermap",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "layer_name",
+          "named": true
+        },
+        {
+          "type": "mapping",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "key",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "known_command",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "layer_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "known_command",
+          "named": true
+        },
+        {
+          "type": "layer_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "layer_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "mapping",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "key",
+          "named": true
+        },
+        {
+          "type": "layer_command",
+          "named": true
+        },
+        {
+          "type": "multi",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "multi",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "key",
+          "named": true
+        },
+        {
+          "type": "known_command",
+          "named": true
+        },
+        {
+          "type": "layer_command",
+          "named": true
+        },
+        {
+          "type": "multi",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quoted",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "inner_quoted",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "deflayermap",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "arbitrary-code",
+    "named": false
+  },
+  {
+    "type": "base-layer",
+    "named": false
+  },
+  {
+    "type": "caps-word",
+    "named": false
+  },
+  {
+    "type": "caps-word-custom",
+    "named": false
+  },
+  {
+    "type": "caps-word-custom-toggle",
+    "named": false
+  },
+  {
+    "type": "caps-word-toggle",
+    "named": false
+  },
+  {
+    "type": "clipboard-cmd-set",
+    "named": false
+  },
+  {
+    "type": "clipboard-restore",
+    "named": false
+  },
+  {
+    "type": "clipboard-save",
+    "named": false
+  },
+  {
+    "type": "clipboard-save-cmd-set",
+    "named": false
+  },
+  {
+    "type": "clipboard-save-swap",
+    "named": false
+  },
+  {
+    "type": "clipboard-set",
+    "named": false
+  },
+  {
+    "type": "cmd",
+    "named": false
+  },
+  {
+    "type": "cmd-log",
+    "named": false
+  },
+  {
+    "type": "cmd-output-keys",
+    "named": false
+  },
+  {
+    "type": "concat",
+    "named": false
+  },
+  {
+    "type": "defalias",
+    "named": false
+  },
+  {
+    "type": "defaliasenvcond",
+    "named": false
+  },
+  {
+    "type": "defcfg",
+    "named": false
+  },
+  {
+    "type": "defchords",
+    "named": false
+  },
+  {
+    "type": "defchordsv2",
+    "named": false
+  },
+  {
+    "type": "deflayer",
+    "named": false
+  },
+  {
+    "type": "deflayermap",
+    "named": false
+  },
+  {
+    "type": "deflocalkeys-linux",
+    "named": false
+  },
+  {
+    "type": "deflocalkeys-macos",
+    "named": false
+  },
+  {
+    "type": "deflocalkeys-win",
+    "named": false
+  },
+  {
+    "type": "deflocalkeys-winiov2",
+    "named": false
+  },
+  {
+    "type": "deflocalkeys-wintercept",
+    "named": false
+  },
+  {
+    "type": "defoverrides",
+    "named": false
+  },
+  {
+    "type": "defseq",
+    "named": false
+  },
+  {
+    "type": "defsrc",
+    "named": false
+  },
+  {
+    "type": "deftemplate",
+    "named": false
+  },
+  {
+    "type": "defvar",
+    "named": false
+  },
+  {
+    "type": "defvirtualkeys",
+    "named": false
+  },
+  {
+    "type": "defzippy",
+    "named": false
+  },
+  {
+    "type": "dynamic-macro-play",
+    "named": false
+  },
+  {
+    "type": "dynamic-macro-record",
+    "named": false
+  },
+  {
+    "type": "dynamic-macro-record-stop",
+    "named": false
+  },
+  {
+    "type": "dynamic-macro-record-stop-truncate",
+    "named": false
+  },
+  {
+    "type": "environment",
+    "named": false
+  },
+  {
+    "type": "fork",
+    "named": false
+  },
+  {
+    "type": "hold-for-duration",
+    "named": false
+  },
+  {
+    "type": "if-equal",
+    "named": false
+  },
+  {
+    "type": "if-in-list",
+    "named": false
+  },
+  {
+    "type": "if-not-equal",
+    "named": false
+  },
+  {
+    "type": "if-not-in-list",
+    "named": false
+  },
+  {
+    "type": "include",
+    "named": false
+  },
+  {
+    "type": "inner_comment",
+    "named": true
+  },
+  {
+    "type": "inner_quoted",
+    "named": true
+  },
+  {
+    "type": "input",
+    "named": false
+  },
+  {
+    "type": "input-history",
+    "named": false
+  },
+  {
+    "type": "key-history",
+    "named": false
+  },
+  {
+    "type": "key-timing",
+    "named": false
+  },
+  {
+    "type": "layer",
+    "named": false
+  },
+  {
+    "type": "layer↑",
+    "named": false
+  },
+  {
+    "type": "macro",
+    "named": false
+  },
+  {
+    "type": "macro-cancel-on-press",
+    "named": false
+  },
+  {
+    "type": "macro-release-cancel",
+    "named": false
+  },
+  {
+    "type": "macro-release-cancel-and-cancel-on-press",
+    "named": false
+  },
+  {
+    "type": "macro-repeat",
+    "named": false
+  },
+  {
+    "type": "macro-repeat-",
+    "named": false
+  },
+  {
+    "type": "macro-repeat-cancel-on-press",
+    "named": false
+  },
+  {
+    "type": "macro-repeat-release-cancel",
+    "named": false
+  },
+  {
+    "type": "macro-repeat-release-cancel-and-cancel-on-press",
+    "named": false
+  },
+  {
+    "type": "movemouse-accel-down",
+    "named": false
+  },
+  {
+    "type": "movemouse-accel-left",
+    "named": false
+  },
+  {
+    "type": "movemouse-accel-right",
+    "named": false
+  },
+  {
+    "type": "movemouse-accel-up",
+    "named": false
+  },
+  {
+    "type": "movemouse-down",
+    "named": false
+  },
+  {
+    "type": "movemouse-left",
+    "named": false
+  },
+  {
+    "type": "movemouse-right",
+    "named": false
+  },
+  {
+    "type": "movemouse-speed",
+    "named": false
+  },
+  {
+    "type": "movemouse-up",
+    "named": false
+  },
+  {
+    "type": "mwheel-down",
+    "named": false
+  },
+  {
+    "type": "mwheel-left",
+    "named": false
+  },
+  {
+    "type": "mwheel-right",
+    "named": false
+  },
+  {
+    "type": "mwheel-up",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "on-idle",
+    "named": false
+  },
+  {
+    "type": "on-physical-idle",
+    "named": false
+  },
+  {
+    "type": "on-press",
+    "named": false
+  },
+  {
+    "type": "on-release",
+    "named": false
+  },
+  {
+    "type": "one-shot",
+    "named": false
+  },
+  {
+    "type": "one-shot-pause-processing",
+    "named": false
+  },
+  {
+    "type": "one-shot-press",
+    "named": false
+  },
+  {
+    "type": "one-shot-press-pcancel",
+    "named": false
+  },
+  {
+    "type": "one-shot-release",
+    "named": false
+  },
+  {
+    "type": "one-shot-release-pcancel",
+    "named": false
+  },
+  {
+    "type": "on↑",
+    "named": false
+  },
+  {
+    "type": "on↓",
+    "named": false
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "plain",
+    "named": true
+  },
+  {
+    "type": "platform",
+    "named": false
+  },
+  {
+    "type": "release-key",
+    "named": false
+  },
+  {
+    "type": "release-layer",
+    "named": false
+  },
+  {
+    "type": "sequence",
+    "named": false
+  },
+  {
+    "type": "sequence-noerase",
+    "named": false
+  },
+  {
+    "type": "setmouse",
+    "named": false
+  },
+  {
+    "type": "switch",
+    "named": false
+  },
+  {
+    "type": "t!",
+    "named": false
+  },
+  {
+    "type": "tap-dance",
+    "named": false
+  },
+  {
+    "type": "tap-dance-eager",
+    "named": false
+  },
+  {
+    "type": "tap-hold",
+    "named": false
+  },
+  {
+    "type": "tap-hold-except-keys",
+    "named": false
+  },
+  {
+    "type": "tap-hold-press",
+    "named": false
+  },
+  {
+    "type": "tap-hold-press-timeout",
+    "named": false
+  },
+  {
+    "type": "tap-hold-release",
+    "named": false
+  },
+  {
+    "type": "tap-hold-release-keys",
+    "named": false
+  },
+  {
+    "type": "tap-hold-release-timeout",
+    "named": false
+  },
+  {
+    "type": "template-expand",
+    "named": false
+  },
+  {
+    "type": "unicode",
+    "named": false
+  },
+  {
+    "type": "unmod",
+    "named": false
+  }
+]

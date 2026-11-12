@@ -1,0 +1,21 @@
+===============
+quoting
+===============
+(deflayermap (a)
+   a (cmd binary "argument" "spaced argument" "")
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (command
+        (known_command)
+        (plain)
+        (quoted
+          (inner_quoted))
+        (quoted
+          (inner_quoted))
+        (quoted)))))

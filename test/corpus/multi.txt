@@ -1,0 +1,38 @@
+===============
+deflayermap multi
+===============
+(deflayermap (layer_name)
+  a (multi a b)
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (multi
+        (known_command)
+        (key)
+        (key)))))
+
+===============
+deflayermap multi nested
+===============
+(deflayermap (layer_name)
+  a (multi a (multi b c))
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (multi
+        (known_command)
+        (key)
+        (multi
+          (known_command)
+          (key)
+          (key))))))

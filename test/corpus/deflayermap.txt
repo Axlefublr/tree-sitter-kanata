@@ -1,0 +1,66 @@
+===============
+deflayermap empty
+===============
+(deflayermap (layer_name))
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)))
+
+===============
+deflayermap key to key
+===============
+(deflayermap (layer_name)
+  a b
+  c d
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (key))
+    (mapping
+      (key)
+      (key))))
+
+===============
+deflayermap key to number
+===============
+(deflayermap (layer_name)
+  a 1
+  c 2
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (number))
+    (mapping
+      (key)
+      (number))))
+
+===============
+deflayermap command
+===============
+(deflayermap (layer_name)
+  a (cmd binary arg arg)
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (command
+        (known_command)
+        (plain)
+        (plain)
+        (plain)))))

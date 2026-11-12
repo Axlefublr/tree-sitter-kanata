@@ -1,0 +1,50 @@
+===============
+layer-toggle
+===============
+(deflayermap (a)
+   a (layer-toggle hi)
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (layer_command
+        (known_command)
+        (layer_name)))))
+
+===============
+layer-while-held
+===============
+(deflayermap (a)
+   a (layer-while-held hi)
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (layer_command
+        (known_command)
+        (layer_name)))))
+
+===============
+layer-switch
+===============
+(deflayermap (a)
+   a (layer-switch hi)
+)
+---------------
+
+(source_file
+  (deflayermap
+    (layer_name)
+    (mapping
+      (key)
+      (layer_command
+        (known_command)
+        (layer_name)))))
